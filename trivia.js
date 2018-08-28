@@ -62,26 +62,41 @@ let trivia = [
   },
 ]
 
-// need to append questions to div
-trivia.array.forEach(question => {
-  $('.container').append(`
-  <h3 class="questions">${question.question}</h3>
-  `)
-});
+//game variables
+let qId = 1
+let correctAns = 0
+let incorrectAns = 0
+let message = ''
 
-function timeConversion(t) {
-  var minutes = Math.floor(t / 60)
-  var seconds = t - (minutes * 60)
+Start game function
+$(document).ready(function () {
+  $('.container').hide()
+  startGame()
+})
 
-  if (seconds < 10) {
-    seconds = '0' + seconds
-  }
-
-  if (minutes === 0) {
-    minutes = '00'
-  } else if (minutes < 10) {
-    minutes = '0' + minutes
-  }
-
-  return minutes + ':' + seconds
+funtion startGame () {
+  $('#startGame').on('click', function () {
+    $('#startGame').hide()
+    $('.container').show()
+  })
 }
+
+// let time = 30
+// $('timer').text('00:30')
+
+// function timeConversion(t) {
+//   var minutes = Math.floor(t / 60)
+//   var seconds = t - (minutes * 60)
+
+//   if (seconds < 10) {
+//     seconds = '0' + seconds
+//   }
+
+//   if (minutes === 0) {
+//     minutes = '00'
+//   } else if (minutes < 10) {
+//     minutes = '0' + minutes
+//   }
+
+//   return minutes + ':' + seconds
+// }
