@@ -1,60 +1,72 @@
 // questions, need question plus answers and correct answer
 let trivia = [
   {
-    q1 = 'What is the only mammal that can fly?',
+    qId: 1,
+    question: 'What is the only mammal that can fly?',
     answers: ['Bats', 'Ostriches', 'Peacocks', 'Flamingos',],
     correctAns: 'Bat'
   },
   {
-    q2 = 'What animal can survive 2 years without food?',
+    qId: 2,
+    question: 'What animal can survive 2 years without food?',
     answers: ['Lions', 'Tarantulas', 'Octopuses', 'Bees',],
     correctAns: 'Tarantulas'
   },
   {
-    q3 = 'How long can an alligator live up to?',
+    qId: 3,
+    question: 'How long can an alligator live up to?',
     answers: ['70 years', '80 years', '90 years', '100 years',],
     correctAns: '100 years'
   },
   {
-    q4 = 'How heavy can an elephant tooth be?',
+    qId: 4,
+    question: 'How heavy can an elephant tooth be?',
     answers: ['6 pounds', '7 pounds', '8 pounds', '9 pounds',],
     correctAns: '9 pounds'
   },
   {
-    q5 = 'What is a group of owls called?',
+    qId: 5,
+    question: 'What is a group of owls called?',
     answers: ['A murder', 'A parliament', 'A flock', 'A convocation',],
     correctAns: 'A parliament'
   },
   {
-    q6 = 'How fast can a woodpecker peck?',
+    qId: 6,
+    question: 'How fast can a woodpecker peck?',
     answers: ['20 pecks a second', '40 pecks a second', '50 pecks a second', '80 pecks a second',],
     correctAns: '20 pecks a second'
   },
   {
-    q7 = 'What is the most poisonous fish in the world?',
+    qId: 7,
+    question: 'What is the most poisonous fish in the world?',
     answers: ['Sea Lion', 'Puffer Fish', 'Stone Fish', 'Toad Fish',],
     correctAns: 'Stone Fish'
   },
   {
-    q8 = 'How often does a whales heart beat?',
+    qId: 8,
+    question: 'How often does a whales heart beat?',
     answers: ['9 times a minute', '12 times a minute', '15 times a minute', '20 times a minute',],
     correctAns: '9 times a minute'
   },
   {
-    q9 = 'What color can a squirrel not see?',
+    qId: 9,
+    question: 'What color can a squirrel not see?',
     answers: ['Blue', 'Orange', 'Purple', 'Red',],
     correctAns: 'Red'
   },
   {
-    q10 = 'How many hours do ferrets sleep a day?',
+    qId: 10,
+    question: 'How many hours do ferrets sleep a day?',
     answers: ['4 hours', '7 hours', '15 hours', '20 hours',],
     correctAns: '20 hours'
   },
 ]
 
 // need to append questions to div
-trivia.array.forEach(trivia => {
-  
+trivia.array.forEach(question => {
+  $('.container').append(`
+  <h3 class="questions">${question.question}</h3>
+  `)
 });
 
 function timeConversion(t) {
