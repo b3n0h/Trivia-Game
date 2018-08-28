@@ -52,6 +52,11 @@ let trivia = [
   },
 ]
 
+// need to append questions to div
+trivia.array.forEach(trivia => {
+  
+});
+
 function timeConversion(t) {
   var minutes = Math.floor(t / 60)
   var seconds = t - (minutes * 60)
