@@ -67,19 +67,22 @@ let qId = 1
 let correctAns = 0
 let incorrectAns = 0
 let message = ''
+let startGame = document.getElementsById('startGame')
 
-Start game function
+// Start game function
 $(document).ready(function () {
   $('.container').hide()
   startGame()
 })
 
-funtion startGame () {
+function startGame () {
   $('#startGame').on('click', function () {
     $('#startGame').hide()
     $('.container').show()
   })
 }
+
+startGame.
 
 // let time = 30
 // $('timer').text('00:30')

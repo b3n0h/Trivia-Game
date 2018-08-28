@@ -10,20 +10,44 @@
 <body>
   <div class="center-align">
     <h2 class="">Animal Facts Trivia Game!</h2>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Start Game</button>
+add    <button class="btn waves-effect waves-light" type="submit" name="action" id="startGame">Start Game</button>
   </div>
-  <div class="container">
-    <h4>Time Left: <span class="timer"></span></h4>
-    <div class="questionTitle">question</div>
-    <div class="answers">
-      <div class="card-action">
-        <a href="#">This is a link</a>
-        <a href="#">This is a link</a>
+  <div class="container center-align">
+    <div class="row">
+      <h4>Time Left: <span class="timer"></span></h4>
+      <h4 class="questionTitle">Question</h4>
+      <div class="answers">
+        <div class="card-action">
+          <p>
+            <label>
+              <input name="group1" type="radio"/>
+              <span>A1</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio"/>
+              <span>A2</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio"/>
+              <span>A3</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio"/>
+              <span>A4</span>
+            </label>
+          </p>
+        </div>
       </div>
+      <div class="showAns"></div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+      <div class="nextQuestion"></div>
     </div>
-    <div class="showAns"></div>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-    <div class="nextQuestion"></div>
   </div>
   
   <!-- need countdown timer -->
