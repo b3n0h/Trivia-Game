@@ -67,7 +67,8 @@ let qId = 1
 let correctAns = 0
 let incorrectAns = 0
 let message = ''
-let startGame = document.getElementsById('startGame')
+let time = 31
+var intervalId
 
 // Start game function
 $(document).ready(function () {
@@ -79,27 +80,24 @@ function startGame () {
   $('#startGame').on('click', function () {
     $('#startGame').hide()
     $('.container').show()
+    $('.timer').html('00:30')
   })
 }
 
-startGame.
 
-// let time = 30
-// $('timer').text('00:30')
 
-// function timeConversion(t) {
-//   var minutes = Math.floor(t / 60)
-//   var seconds = t - (minutes * 60)
+let gameTimer = setInterval(function () {
+  time--
+  if (time > 0) {
+    $('.timer').html(timeConversion(time))
+  } else {
+    $('.timer').html('00:00')
+  }
+}, 1000)
 
-//   if (seconds < 10) {
-//     seconds = '0' + seconds
-//   }
-
-//   if (minutes === 0) {
-//     minutes = '00'
-//   } else if (minutes < 10) {
-//     minutes = '0' + minutes
-//   }
-
-//   return minutes + ':' + seconds
-// }
+function timeConversion(t) {
+  if (t < 10) {
+    t = '0' + t
+  }
+  return '00:' + t
+}
