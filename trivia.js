@@ -66,8 +66,9 @@ let trivia = [
 let qId = 1
 let correctAns = 0
 let incorrectAns = 0
+let unanswered = 0
 let message = ''
-let time = 31
+let time = 30
 var intervalId
 var questionCounter = 1
 var correctAnsId
@@ -85,6 +86,7 @@ function startGame () {
     $('#startGame').hide()
     $('.container').show()
     $('.timer').html(`00:${time}`)
+    runTimer()
     display()
   })
 }
@@ -103,6 +105,7 @@ function display () {
 
 function empty () {
   $('.questionTitle').empty()
+  $('.message').empty()
   $('.choices').prop('checked', false)
   $('#A').empty()
   $('#B').empty()
@@ -121,7 +124,6 @@ function checkAns () {
     incorrectAns++
   }
   result()
-  stopTimer()
   $('.nextQuestion').show()
 }
 
@@ -130,7 +132,10 @@ function result () {
   $('.answerTitle').show()
   for (let i = 0; i < trivia[questionCounter-1].answers.length; i++) {
     if (idArr[i] !== correctAnsId) {
+      $('.message').text('Correct!')
       $(idArr[i]).parent().hide()
+    } else {
+      $('.message').text('Incorrect...')
     }
   }
 }
@@ -139,6 +144,7 @@ function nextQuestion () {
   empty()
   display()  
   showNew()
+  runTimer()
 }
 
 // Shows next question and answers
@@ -153,6 +159,7 @@ function showNew () {
 
 //Event Listener
 $('.choices').on('click', function () {
+  stop()
   checkAns()
 })
 $('.nextQuestion').on('click', function () {
@@ -160,22 +167,29 @@ $('.nextQuestion').on('click', function () {
   nextQuestion()
 })
 
-function stopTimer () {
-  clearInterval(intervalId)
+function runTimer() {
+  clearInterval(intervalId);
+  intervalId = setInterval(decrement, 1000)
 }
 
-let gameTimer = setInterval(function () {
-  time--
-  if (time > 0) {
-    $('.timer').html(timeConversion(time))
-  } else {
-    $('.timer').html('00:00')
+function decrement() {
+  time--;
+  $('.timer').text("00:" + converter(time));
+  if (time === 0) {
+    stop();
+    $('.timer').text("Time's Up")
+    unanswered++
+    result()
   }
-}, 1000)
+}
 
-function timeConversion(t) {
-  if (t < 10) {
-    t = '0' + t
+function converter(timer) {
+  if (timer < 10) {
+    timer = '0' + timer
   }
-  return '00:' + t
+  return timer
+}
+
+function stop() {
+  clearInterval(intervalId);
 }
