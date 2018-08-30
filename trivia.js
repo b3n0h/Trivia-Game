@@ -93,11 +93,11 @@ function startGame () {
 
 //Display question & answers
 let idArr = ['#A', '#B', '#C', '#D']
-function display () {
-  $('.questionTitle').append(trivia[questionCounter-1].question)
-  for (let i = 0; i < trivia[questionCounter-1].answers.length; i++) {
-    $(idArr[i]).append(trivia[questionCounter-1].answers[i])
-    if (trivia[questionCounter-1].answers[i] === trivia[questionCounter-1].correctAns) {
+function display() {
+  $('.questionTitle').append(trivia[questionCounter - 1].question)
+  for (let i = 0; i < trivia[questionCounter - 1].answers.length; i++) {
+    $(idArr[i]).append(trivia[questionCounter - 1].answers[i])
+    if (trivia[questionCounter - 1].answers[i] === trivia[questionCounter - 1].correctAns) {
       correctAnsId = idArr[i]
     }
   }
@@ -115,8 +115,8 @@ function empty () {
 
 function checkAns () {
   var checkAns = $(this).siblings('span').text()
-  checkAns = checkAns.split(': ') 
-  if (checkAns[1] === trivia[questionCounter-1].correctAns) {
+  checkAns = checkAns.split(': ')
+  if (checkAns[1] === trivia[questionCounter - 1].correctAns) {
     questionCounter++
     correctAns++
   } else {
@@ -130,21 +130,26 @@ function checkAns () {
 function result () {
   $('.questionTitle').parent().hide()
   $('.answerTitle').show()
-  for (let i = 0; i < trivia[questionCounter-1].answers.length; i++) {
+  for (let i = 0; i < trivia[questionCounter - 1].answers.length; i++) {
     if (idArr[i] !== correctAnsId) {
-      $('.message').text('Correct!')
       $(idArr[i]).parent().hide()
-    } else {
-      $('.message').text('Incorrect...')
     }
   }
 }
 
 function nextQuestion () {
   empty()
-  display()  
+  display()
   showNew()
+  let time = 30
   runTimer()
+}
+
+function endGame () {
+  let 
+  if (questionCounter = 10 ) {
+    
+  }
 }
 
 // Shows next question and answers
@@ -163,11 +168,11 @@ $('.choices').on('click', function () {
   checkAns()
 })
 $('.nextQuestion').on('click', function () {
-  $('.choices').removeAttr('checked') 
+  $('.choices').removeAttr('checked')
   nextQuestion()
 })
 
-function runTimer() {
+function runTimer () {
   clearInterval(intervalId);
   intervalId = setInterval(decrement, 1000)
 }
@@ -177,10 +182,11 @@ function decrement() {
   $('.timer').text("00:" + converter(time));
   if (time === 0) {
     stop();
-    $('.timer').text("Time's Up")
+    $('.timer').parent().text("Time's Up")
     unanswered++
     result()
   }
+  nextQuestion()
 }
 
 function converter(timer) {
