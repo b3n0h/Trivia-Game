@@ -4,7 +4,7 @@ let trivia = [
     qId: 1,
     question: 'What is the only mammal that can fly?',
     answers: ['Bats', 'Ostriches', 'Peacocks', 'Flamingos',],
-    correctAns: 'Bat'
+    correctAns: 'Bats'
   },
   {
     qId: 2,
@@ -69,10 +69,14 @@ let incorrectAns = 0
 let message = ''
 let time = 31
 var intervalId
+var questionCounter = 1
+var correctAnsId
 
 // Start game function
 $(document).ready(function () {
   $('.container').hide()
+  $('.answerTitle').hide()
+  $('.nextQuestion').hide()
   startGame()
 })
 
@@ -80,11 +84,85 @@ function startGame () {
   $('#startGame').on('click', function () {
     $('#startGame').hide()
     $('.container').show()
-    $('.timer').html('00:30')
+    $('.timer').html(`00:${time}`)
+    display()
   })
 }
 
+//Display question & answers
+let idArr = ['#A', '#B', '#C', '#D']
+function display () {
+  $('.questionTitle').append(trivia[questionCounter-1].question)
+  for (let i = 0; i < trivia[questionCounter-1].answers.length; i++) {
+    $(idArr[i]).append(trivia[questionCounter-1].answers[i])
+    if (trivia[questionCounter-1].answers[i] === trivia[questionCounter-1].correctAns) {
+      correctAnsId = idArr[i]
+    }
+  }
+}
 
+function empty () {
+  $('.questionTitle').empty()
+  $('.choices').prop('checked', false)
+  $('#A').empty()
+  $('#B').empty()
+  $('#C').empty()
+  $('#D').empty()
+}
+
+function checkAns () {
+  var checkAns = $(this).siblings('span').text()
+  checkAns = checkAns.split(': ') 
+  if (checkAns[1] === trivia[questionCounter-1].correctAns) {
+    questionCounter++
+    correctAns++
+  } else {
+    questionCounter++
+    incorrectAns++
+  }
+  result()
+  stopTimer()
+  $('.nextQuestion').show()
+}
+
+function result () {
+  $('.questionTitle').parent().hide()
+  $('.answerTitle').show()
+  for (let i = 0; i < trivia[questionCounter-1].answers.length; i++) {
+    if (idArr[i] !== correctAnsId) {
+      $(idArr[i]).parent().hide()
+    }
+  }
+}
+
+function nextQuestion () {
+  empty()
+  display()  
+  showNew()
+}
+
+// Shows next question and answers
+function showNew () {
+  $('.questionTitle').parent().show()
+  for (let i = 0; i < trivia[questionCounter - 1].answers.length; i++) {
+    $(idArr[i]).parent().show()
+  }
+  $('.answerTitle').hide()
+  $('.nextQuestion').hide()
+}
+
+//Event Listener
+$('.choices').on('click', function () {
+  checkAns()
+})
+$('.nextQuestion').on('click', function () {
+  $('.choices').removeAttr('checked') 
+  nextQuestion()
+})
+
+function stopTimer () {
+  clearInterval(intervalId)
+}
 
 let gameTimer = setInterval(function () {
   time--

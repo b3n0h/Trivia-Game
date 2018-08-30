@@ -15,38 +15,43 @@
   <div class="container center-align">
     <div class="row">
       <h4>Time Left: <span class="timer"></span></h4>
-      <h4 class="questionTitle">Question</h4>
+      <h4>Question: <span class="questionTitle"></span></h4>
+      <h4 class="answerTitle">The correct answer is: </h4>
       <div class="answers">
         <div class="card-action">
           <p>
             <label>
-              <input name="group1" type="radio"/>
-              <span id="q1"></span>
+              <input name="group1" class="choices" type="radio"/>
+              <span>A: </span>
+              <span class="answerSpan" id="A"></span>
             </label>
           </p>
           <p>
             <label>
-              <input name="group1" type="radio"/>
-              <span id="q2"></span>
+              <input name="group1" class="choices" type="radio"/>
+              <span>B: </span>
+              <span class="answerSpan" id="B"></span>
             </label>
           </p>
           <p>
             <label>
-              <input name="group1" type="radio"/>
-              <span id="q3"></span>
+              <input name="group1" class="choices" type="radio"/>
+              <span>C: </span>
+              <span class="answerSpan" id="C"></span>
             </label>
           </p>
           <p>
             <label>
-              <input name="group1" type="radio"/>
-              <span id="q4"></span>
+              <input name="group1" class="choices" type="radio"/>
+              <span>D: </span>
+              <span class="answerSpan" id="D"></span>
             </label>
           </p>
         </div>
       </div>
       <div class="showAns"></div>
-      <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
       <div class="nextQuestion"></div>
+      <button class="nextQuestion">Next Question</button>
     </div>
   </div>
   
