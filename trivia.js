@@ -116,6 +116,7 @@ function empty () {
 function checkAns () {
   var checkAns = $(this).siblings('span').text()
   checkAns = checkAns.split(': ')
+  // this is supposed to give the answers an id
   if (checkAns[1] === trivia[questionCounter - 1].correctAns) {
     questionCounter++
     correctAns++
@@ -148,7 +149,7 @@ function nextQuestion () {
 function endGame () {
   let 
   if (questionCounter = 10 ) {
-    
+    //i couldnt get checkAns() to give the answer array an id so this is supposed to display correctAns, incorrectAns, and unanswered and display them
   }
 }
 
