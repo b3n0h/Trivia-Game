@@ -142,6 +142,7 @@ function nextQuestion () {
   empty()
   display()
   showNew()
+  // this is supposed to reset the timer but doesnt work as well
   let time = 30
   runTimer()
 }
