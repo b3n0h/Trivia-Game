@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <title>Trivia Game</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="center-align">
+    <h2 class="gameName">Animal Facts Trivia Game!</h2>
+    <button class="btn waves-effect waves-light" type="submit" name="action" id="startGame">Start Game</button>
+  </div>
+  <div class="container center-align">
+    <div class="row">
+      <h4>Time Left: <span class="timer"></span></h4>
+      <h4>Question: <span class="questionTitle"></span></h4>
+      <h4 class="message"></h4>
+      <h4 class="answerTitle">The correct answer is: </h4>
+      <div class="answers">
+        <div class="card-action">
+          <p>
+            <label>
+              <input name="group1" class="choices" type="radio"/>
+              <span class="letter">A: </span>
+              <span class="answerSpan" id="A"></span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" class="choices" type="radio"/>
+              <span class="letter">B: </span>
+              <span class="answerSpan" id="B"></span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" class="choices" type="radio"/>
+              <span class="letter">C: </span>
+              <span class="answerSpan" id="C"></span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" class="choices" type="radio"/>
+              <span class="letter">D: </span>
+              <span class="answerSpan" id="D"></span>
+            </label>
+          </p>
+        </div>
+      </div>
+      <div class="showAns"></div>
+      <div class="nextQuestion"></div>
+      <button class="nextQuestion btn waves-effect waves-light">Next Question</button>
+    </div>
+  </div>
+  
+  <!-- need countdown timer -->
+  <!-- need questions and answers -->
+  <!-- need to flip through questions -->
+  <!-- need messages for correct or wrong answers (also show correct answer) -->
+  <!-- need reset game button -->
+  <!-- need end game results -->
+  <script src='https://code.jquery.com/jquery-3.3.1.js' integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=' crossorigin='anonymous'></script>
+  <script src="./trivia.js"></script>
+</body>
+</html>

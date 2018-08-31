@@ -1,0 +1,17 @@
+body {
+  background: url(./jungle.jpg);
+  background-size: cover; 
+}
+
+.gameName {
+  background-color: green;
+  padding: 10px;
+}
+
+.container {
+  background-color: lightgreen;
+}
+
+.letter, .answerSpana {
+  color: black;
+} 
